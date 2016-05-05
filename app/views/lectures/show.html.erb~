@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron text-center">
+<p>
+  <strong>content:</strong>
+ <%= raw(@lecture.title) %>
+<%=@lecture.title%> 
+</p>
+
+<p>
+  <strong>Attach:</strong>
+  <%= link_to "Download Attachement ", download_lecture_path(:attach => @lecture.attach.file.path)  %>
+
+</p>
+<p>
+  <strong>Course:</strong>
+  <%= @lecture.course.title %>
+</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<% if user_signed_in? %>
+
+
+<%= link_to "Upvote", like_lecture_path(@lecture), method: :put ,class: "btn btn-success" ,:style=>'color:#000000;  text-decoration:none; '  %>
+
+
+
+people who like this<%= @lecture.get_upvotes.size %>
+
+
+
+<br>
+
+ 
+<%= form_tag({controller: "comments", action: "create", :id => @lecture.id}, method: "post") do %>
+ 
+
+
+   <%= text_area "comment", "body" %><br />
+   <%= submit_tag "Comment",:style=>'border-radius: 2px;' %>
+</form>
+
+<% end %>
+<h2>Comments</h2>
+   <% for comment in @lecture.comments %>
+   <%= comment.user.name  %>  :  <%= comment.body %>
+      
+      <hr />
+<% end %>
+
+
+
+
+
+<%end%>
+
+
+<%= link_to 'Back', showrelated_lecture_path(:id=>@lecture.course_id),class: "btn btn-danger" ,:style=>'color:#000000;  text-decoration:none; ' %>

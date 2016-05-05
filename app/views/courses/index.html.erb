@@ -1,0 +1,38 @@
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Courses</h1>
+
+<table  class="table table-striped">
+  
+    <tr>
+      <th>Title</th>
+      <th>User</th>
+      <th colspan="2"></th>
+    </tr>
+
+
+
+    <% @courses.each do |course| %>
+      <tr>
+          <td><%= link_to course.title, showrelated_lecture_path(:id=>course.id)  %></td>
+        <td><%= course.user.name %></td>
+      
+<% if user_signed_in? %>
+        <% if current_user.id == course.user_id %>
+ 
+        <td><%= link_to 'Edit', edit_course_path(course) , class: "btn btn-danger",:style=>'color:#000000;  text-decoration:none; ' %></td>
+        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger",:style=>'color:#000000;  text-decoration:none; '%></td>
+<% end %>
+<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

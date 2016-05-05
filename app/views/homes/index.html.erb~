@@ -1,0 +1,61 @@
+ <style>
+.jumbotron {
+    background-color: Maroon; 
+    color: #ffffff;
+}
+.logo {
+    font-size: 200px;
+}
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+}
+
+
+
+
+
+
+</style>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1>mooc</h1>
+    <p>to view courses click button     <%= link_to "course",courses_path , class: "btn btn-default navbar-btn"%> </p>
+   <p>to view lectures press on course name to show relative lectures </p>
+
+  </div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About Company Page</h2>
+      <h4>Lorem ipsum..</h4>
+      <p>Lorem ipsum..</p>
+    
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-signal logo"></span>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-8">
+    
+         <span class="glyphicon glyphicon-globe logo"></span>
+    
+    </div>
+    <div class="col-sm-4">
+      <h2>Our Values</h2>
+      <h4><strong>MISSION:</strong> Our mission lorem ipsum..</h4>
+      <p><strong>VISION:</strong> Our vision Lorem ipsum..</p>
+    </div>
+  </div>
+
+</div>
+
+</body>

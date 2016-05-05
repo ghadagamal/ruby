@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+    <div class="container">
+
+    <div class="row">
+  <div class="col-sm-4"  > <%= image_tag(current_user.attachment.url, :class => "img-thumbnail ",:style => "height:300px")%></div>
+  <div class="col-sm-8 jumbotron"  > <h1> name: <%= current_user.name %> <h1>  <h4>gender: <%= current_user.gender %> <h4> <h4>bod: <%= current_user.bod %> <h4> <div>
+ <%= link_to "edit profile",edit_user_registration_path, class: "btn btn-default "%> 
+</div>   
+     
+        
+   
+  </div>
+ 

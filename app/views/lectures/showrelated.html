@@ -1,0 +1,46 @@
+
+ 
+       
+         
+        
+
+
+  
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing lectures</h1>
+
+<table  class="table table-striped">
+  
+    <tr>
+     
+      <th>
+lecture
+</th>
+  <th colspan="3"></th>
+    </tr>
+ 
+
+
+<% @lectures.each do |lecture| %>
+      <tr>
+        <td><%= link_to lecture.id, lecture %></td>
+   
+      
+<% if user_signed_in? %>
+        <% if current_user.id == lecture.course.user_id %>
+ 
+        <td><%= link_to 'Edit', edit_lecture_path(lecture) , class: "btn btn-danger" ,:style=>'color:#000000;  text-decoration:none; ' %></td>
+        <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" ,:style=>'color:#000000;  text-decoration:none; '%></td>
+<% end %>
+<% end %>
+      </tr>
+    <% end %>
+ 
+</table>
+
+<br>
+
+
+

@@ -1,0 +1,17 @@
+require 'test_helper'
+
+class CoursesControllerTest < ActionController::TestCase
+  setup do
+    @course = courses(:one)
+  end
+  
+  test "should show related" do
+    get :showrelated
+    assert_response :success
+   # assert_not_nil assigns(:courses)
+  end
+   
+
+
+  
+end
